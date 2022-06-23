@@ -1,0 +1,63 @@
+#include <iostream>
+using namespace std;
+class data{
+  public:
+  void input();
+  void proses();
+  void output();
+                   
+private:
+    int *nimMahasiswa;
+    int nimMhs[10];
+    string *namaMahasiswa;
+    string namaMhs[10];
+};
+    
+
+  void data::input(){
+     cout<<"------------------------------------------"<<endl;
+    cout << "\t\tData Mahasiswa Yang Masuk \n";
+    cout << "\t   Babak Final Lomba Parmatika"<<endl;
+    cout<<"------------------------------------------"<<endl<<endl;
+    for (int i=0; i<5; i++){
+      cout << "Masukkan NIM  : ";
+      cin >> nimMhs[i];
+      cout << "Masukkan Nama : ";
+      cin >> namaMhs[i];
+      cout<<endl;
+    }
+  }
+  void data::proses(){
+    cout << "------------------------------\n";
+    nimMahasiswa = new int[10];
+    namaMahasiswa = new string[10];
+    for(int i=0; i<5; i++){
+      *nimMahasiswa = nimMhs[i];
+      nimMahasiswa += 1;
+      *namaMahasiswa = namaMhs[i];
+      namaMahasiswa +=1;
+    }
+  }
+  void data::output(){
+    nimMahasiswa  -= 5;
+    namaMahasiswa -= 5;
+    cout<<"Menampilkan data mahasiswa "<<endl;
+    for (int i=0; i<5; i++) {
+      cout << "\nNama ke-" << i+1 << " : ";
+      cout << *namaMahasiswa ;
+      namaMahasiswa += 1;
+      cout << "\nNim : " ;
+      cout << *nimMahasiswa ;
+      cout << "\n------------------------------\n";
+      nimMahasiswa += 1;
+    }
+  }
+
+
+int main(){
+  data x;
+  x.input();
+  x.proses();
+  x.output();
+  
+}
